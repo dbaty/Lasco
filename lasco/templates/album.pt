@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="lasco"
+      metal:use-macro="api.layout.macros['master']">
+
+<tal:block metal:fill-slot="content">
+
+<h1>
+  ${album.title}
+  <span class="smallInTitle">
+    (<a tal:attributes="href api.route_url('gallery', gallery_name=gallery.name)"
+        title="back to the gallery (list of albums)"
+        i18n:attributes="title">&uarr;</a>)
+  </span>
+</h1>
+
+<ul metal:define-macro="nav"
+    class="batchNav clear">
+  <tal:i18n i18n:domain="lasco">
+    <li>
+      <a tal:condition="pictures.previous"
+         class="previousNext noUnderline"
+         href="${url_of_page % 1}"
+         title="first page"
+         i18n:attributes="title">&lt;</a>
+      <span tal:condition="not pictures.previous"
+            class="disabledLink">&lt;</span>
+    </li>
+    <li>
+      <a tal:condition="pictures.previous"
+         class="previousNext noUnderline"
+         href="${url_of_page % pictures.previous}"
+         title="previous page"
+         i18n:attributes="title">&larr;</a>
+      <span tal:condition="not pictures.previous"
+            class="disabledLink">&larr;</span>
+    </li>
+    <li tal:repeat="page pictures.pages">
+      <a tal:condition="page != pictures.current"
+         tal:content="page"
+         href="${url_of_page % page}"/>
+      <span tal:condition="page == pictures.current"
+            tal:content="page"
+            class="current"/>
+    </li>
+    <li>
+      <a tal:condition="pictures.next"
+         class="previousNext noUnderline"
+         href="${url_of_page % pictures.next}"
+         title="next page"
+         i18n:attributes="title">&rarr;</a>
+      <span tal:condition="not pictures.next"
+            class="disabledLink">&rarr;</span>
+    </li>
+    <li>
+      <a tal:condition="pictures.next"
+         class="previousNext noUnderline"
+         href="${url_of_page % pictures.last}"
+         title="last page"
+         i18n:attributes="title">&gt;</a>
+      <span tal:condition="not pictures.next"
+            class="disabledLink">&gt;</span>
+    </li>
+  </tal:i18n>
+</ul>
+
+
+<ul class="albumPictures">
+  <li tal:repeat="picture pictures.slice">
+    <a tal:define="pic_info picture.get_info"
+       tal:attributes="href api.route_url('picture_in_album',
+           gallery_name=gallery.name, album_name=album.name,
+           picture_id=picture.id)"
+       title="${pic_info}"
+       class="picture"
+       ><img tal:attributes="src api.route_url('picture_as_image', picture_id=picture.id)"
+             height="200"
+             alt="${pic_info}"/></a>
+  </li>
+</ul>
+
+<ul metal:use-macro="template.macros['nav']"></ul>
+
+</tal:block>
+</html>

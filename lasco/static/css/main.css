@@ -1,0 +1,297 @@
+/*******************************************************************
+** Reset CSS
+************/
+body, h1, h2, p, div, ul, li, img, fieldset, form, table, tr, td {
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2 {
+    font-size: 100%;
+    font-weight: normal;
+}
+/**********************************************************/
+
+
+/***********************************************************
+** Default and general settings
+*******************************/
+body {
+    background-color: black;
+    color: white;
+    font-family: "Lucida Grande", arial, sans-serif;
+    font-size: 100%; /* 16px */
+    width: 1090px;
+    margin: 1em auto;
+}
+
+h1, h2 {
+    border-bottom: 1px solid #444444;
+    padding: 0 0 0.1em 0;
+    margin-bottom: 0.625em;
+}
+
+h1 {
+    font-size: 1.6em;
+}
+
+h1 span.smallInTitle {
+    font-size: 0.6em;
+}
+
+h2 {
+    font-size: 1.3em;
+}
+
+p, form {
+    margin-bottom: 1em;
+}
+
+ul.genericList {
+    list-style-type: none;
+    margin: 0 0 0 0;
+    padding: 0;
+}
+
+ul.genericList li {
+    margin: 0;
+    padding: 0 0 1em 0;
+}
+
+a {
+    color: #6699CC;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+    border-bottom: 1px ridge #6699CC;
+    padding-bottom: 0.1em;
+}
+
+a.noUnderline:hover {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+img {
+    padding: 0;
+    margin: 0;
+    border: 1px solid #808080;
+}
+
+fieldset {
+    border: 0;
+}
+
+table.listing {
+    border-collapse: collapse;
+    border-top: 1px solid #444444;
+    margin: 0 auto 1em auto;
+}
+
+table.listing tr.odd {
+    background-color: #111111;
+}
+
+table.listing tr.even {
+    background-color: #222222;
+}
+
+table.listing td {
+    border-bottom: 1px solid #444444;
+    padding: 1em;
+    margin: 0;
+}
+
+span.key {
+    border: 0.1em solid #444444;
+    padding: 0.2em;
+}
+
+.dialog {
+    border: 1px solid white;
+    padding: 1em;
+    background-color: black;
+}
+
+.hidden {
+    display: none;
+}
+
+.clear {
+    clear: both;
+}
+
+.noBorder {
+    border: 0;
+}
+
+spinner {
+    background-color: black;
+    width: 30px;
+}
+
+div.errorMessage {
+    background-color: #B40000;
+    color: white;
+    border: 0.1em solid white;
+    padding: 1em;
+    margin: 1em;
+}
+
+.disabledLink {
+    color: #444444;
+}
+/**********************************************************/
+
+
+/***********************************************************
+** Forms
+********/
+div.formRow {
+    padding-bottom: 0.5em;
+}
+
+div.formRow label {
+    font-weight: bold;
+    display: block;
+}
+
+input, textarea, select {
+    font-size: 1em;
+    padding: 0.2em;
+    margin-top: 0.3em;
+}
+
+input[type=submit] {
+    font-size: 1em;
+    background-color: #6699CC;
+    color: #215485;
+    margin-top: 0.5em;
+    border: 0.1em solid #215485;
+    padding: 0.3em;
+}
+
+input[type=submit]:hover {
+    border-color: white;
+    color: white;
+}
+/***********************************************************/
+
+
+/***********************************************************
+** Pictures
+***********/
+ul.albumPictures {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul.albumPictures li {
+    float: left;
+    margin: 0;
+    padding: 0.2em;
+    width: 266px; /* image height == 200*/
+    text-align: center;
+}
+
+a.picture:hover {
+    border: 0;
+}
+
+div.singlePicture {
+    margin: 1em 0 0 0;
+    padding: 0;
+    text-align: center;
+}
+
+div.pictureNavigator {
+    position: fixed;
+}
+
+div.picturePositionInAlbum {
+    margin: 0;
+    padding: 0;
+    font-size: 0.7em;
+    color: #999999;
+    text-align: center;
+}
+
+div.pictureCaptionAndLocation {
+    font-size: 0.7em;
+    margin: 0 0 1em 0;
+    padding: 1em 0 0 0;
+    text-align: center;
+}
+/**********************************************************/
+
+
+
+/***********************************************************
+** Batch navigation
+*******************/
+ul.batchNav {
+    list-style-type: none;
+    margin: 0 0 1em 0;
+    padding: 1em 0 0 0;
+    text-align: center;
+}
+
+ul.batchNav li {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+ul.batchNav li a {
+    background-color: black;
+    color: #6699CC;
+    border: 1px solid #6699CC;
+    padding: 0.3em; /* same as li span.disabledLink*/
+}
+
+ul.batchNav li a:hover {
+    color: white;
+    border-color: white;
+}
+
+ul.batchNav li a.previousNext {
+    color: #6699CC;
+    border: 0;
+    background-color: transparent;
+}
+
+ul.batchNav li span.current {
+    font-weight: bold;
+}
+
+ul.batchNav li span.disabledLink {
+    padding: 0.3em; /* same as li a*/
+}
+/**********************************************************/
+
+
+
+/***********************************************************
+** Footer
+*********/
+ul.footer {
+    width: 40em;
+    margin: 0 auto;
+    padding: 0.5em 0 0 0;
+    border-top: 1px solid #444444;
+    list-style-type: none;
+    text-align: center;
+}
+
+ul.footer li {
+    display: inline;
+    padding: 0 8px;
+    margin-left: -4px;
+    border-right: 1px solid #444444;
+}
+ul.footer li.last {
+    border-right: 0;
+}
+/**********************************************************/

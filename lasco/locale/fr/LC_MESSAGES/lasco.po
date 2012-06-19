@@ -1,0 +1,211 @@
+# French translations for Lasco.
+# This file is distributed under the same license as the Lasco project.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Lasco 0.1\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2012-06-19 11:07+0200\n"
+"PO-Revision-Date: 2010-08-21 18:28+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: fr <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 0.9.6\n"
+
+#: lasco/templates/album.pt:14
+msgid "back to the gallery (list of albums)"
+msgstr "retour à la galerie (liste des albums)"
+
+#: lasco/templates/album.pt:24
+msgid "first page"
+msgstr "première page"
+
+#: lasco/templates/album.pt:33
+msgid "previous page"
+msgstr "page précédente"
+
+#: lasco/templates/album.pt:50
+msgid "next page"
+msgstr "page suivante"
+
+#: lasco/templates/album.pt:59
+msgid "last page"
+msgstr "dernière page"
+
+#: lasco/templates/gallery.pt:13
+msgid "back to home page"
+msgstr "retour à la page d'accueil"
+
+#: lasco/templates/gallery.pt:23
+msgid "${n} pictures"
+msgstr "${n} photos"
+
+#: lasco/templates/help.pt:10
+msgid "Help! I need somebody! Help!"
+msgstr "À l'aide !"
+
+#: lasco/templates/help.pt:12
+msgid "Which access keys are available?"
+msgstr "Quelles sont les touches d'accès rapide ?"
+
+#. Default: When viewing a single picture in an album, you may use access keys:
+#. <dynamic element> to navigate to the previous picture, <dynamic element> to
+#. navigate the next one.
+#: lasco/templates/help.pt:14
+msgid "help_access_keys_1"
+msgstr ""
+"Lorsque vous visionnez une image unique, vous pouvez utiliser des touches"
+" d'accès rapide : <span class=\"key\">s</span> pour naviguer vers la "
+"photo suivante, et <span class=\"key\">p</span> pour la photo précédente."
+
+#. Default: How you invoke an access key depends on your browser (below
+#. <dynamic
+#. element> has to be replaced by the access key you want to invoke):
+#: lasco/templates/help.pt:20
+msgid "help_access_keys_2"
+msgstr ""
+"Pour invoquer une touche d'accès, le raccourci dépend de votre navigateur"
+" (ici, <span class=\"key\">?</span> doit être remplacé par la touche "
+"d'accès que vous souhaitez invoquer) :"
+
+#: lasco/templates/help.pt:61
+msgid "How do I change the language?"
+msgstr "Comment changer la langue ?"
+
+#. Default: You may change the language of the user interface by going to
+#. <dynamic
+#. element>.
+#: lasco/templates/help.pt:63
+msgid "help_language"
+msgstr ""
+"Vous pouvez changer la langue de l'interface sur la page de <a "
+"href=\"preferences\">vos préférences</a>."
+
+#: lasco/templates/help.pt:68
+msgid "How to I change the colors?"
+msgstr "Comment changer les couleurs ?"
+
+#. Default: You may change the colors of the user interface by going to
+#. <dynamic
+#. element> and selecting a new color theme.
+#: lasco/templates/help.pt:70
+msgid "help_stylesheet"
+msgstr ""
+"Vous pouvez modifier les couleurs de l'interface sur la page de <a "
+"href=\"preferences\">vos préférences</a>."
+
+#: lasco/templates/index.pt:10
+msgid "Galleries"
+msgstr "Galeries"
+
+#: lasco/templates/layout.pt:28
+msgid "home"
+msgstr "accueil"
+
+#: lasco/templates/layout.pt:30
+msgid "log in"
+msgstr "se connecter"
+
+#: lasco/templates/layout.pt:34
+msgid "log out"
+msgstr "se déconnecter"
+
+#: lasco/templates/layout.pt:37
+msgid "preferences"
+msgstr "préférences"
+
+#: lasco/templates/layout.pt:40
+msgid "help"
+msgstr "aide"
+
+#: lasco/templates/login.pt:40
+msgid "User name"
+msgstr "Nom d'utilisateur"
+
+#: lasco/templates/login.pt:44
+msgid "Password"
+msgstr "Mot de passe"
+
+#: lasco/templates/login.pt:48
+msgid "Log in"
+msgstr "se connecter"
+
+#: lasco/templates/notfound.pt:10
+msgid "It was impossible to find the following resource: ${url}"
+msgstr "Impossible de trouver la ressource suivante : ${url}"
+
+#: lasco/templates/picture.pt:80
+msgid "(p)revious picture"
+msgstr "photo (p)récédente"
+
+#: lasco/templates/picture.pt:80
+msgid "p"
+msgstr "p"
+
+#: lasco/templates/picture.pt:90
+msgid "back to the album (thumbnails)"
+msgstr "retour à l'album (vignettes)"
+
+#: lasco/templates/picture.pt:95
+msgid "(n)ext picture"
+msgstr "photo (s)uivante"
+
+#: lasco/templates/picture.pt:95
+msgid "n"
+msgstr "s"
+
+#: lasco/templates/picture.pt:140
+msgid "Caption"
+msgstr "Légende"
+
+#: lasco/templates/picture.pt:145
+msgid "Location"
+msgstr "Emplacement"
+
+#: lasco/templates/picture.pt:150
+msgid "Updating..."
+msgstr "Mise à jour en cours..."
+
+#: lasco/templates/picture.pt:152
+msgid "Update"
+msgstr "Mettre à jour"
+
+#: lasco/templates/picture.pt:154
+msgid "cancel"
+msgstr "annuler"
+
+#: lasco/templates/preferences.pt:10 lasco/views/preferences.py:15
+msgid "Your preferences"
+msgstr "Vos préférences"
+
+#: lasco/templates/preferences.pt:12
+msgid "Color theme"
+msgstr "Thème graphique"
+
+#: lasco/templates/preferences.pt:22
+msgid "Change color theme"
+msgstr "Changer le thème graphique"
+
+#: lasco/templates/preferences.pt:27
+msgid "Language"
+msgstr "Langue"
+
+#: lasco/templates/preferences.pt:37
+msgid "Change language"
+msgstr "Modifier la langue"
+
+#: lasco/views/auth.py:20
+msgid "Wrong user name or password."
+msgstr "Mauvais nom d'utilisateur ou mot de passe."
+
+#: lasco/views/gallery.py:21
+msgid "Page not found"
+msgstr "Page non trouvée"
+
+#: lasco/views/gallery.py:29
+msgid "Help"
+msgstr "Aide"
+

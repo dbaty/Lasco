@@ -1,0 +1,221 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Installation and configuration &mdash; Lasco 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Lasco 0.1.0 documentation" href="index.html" />
+    <link rel="next" title="User guide" href="userguide.html" />
+    <link rel="prev" title="Features" href="features.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="userguide.html" title="User guide"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="features.html" title="Features"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Lasco 0.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="installation-and-configuration">
+<h1>Installation and configuration<a class="headerlink" href="#installation-and-configuration" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="dependencies-and-prerequisites">
+<h2>Dependencies and prerequisites<a class="headerlink" href="#dependencies-and-prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>Lasco requires Python 2.7 and an RDBMS. I test with SQLite and use
+PostgreSQL on production. Other RDBMS should work as well.</p>
+</div>
+<div class="section" id="id1">
+<h2>Installation and configuration<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Here below is the shortest path to test Lasco. It is highly
+recommended to install Lasco in a <a class="reference external" href="http://www.virtualenv.org/en/latest/index.html">virtual environment</a>:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>mkdir <span class="nb">test</span>-lasco
+<span class="nv">$ </span><span class="nb">cd test</span>-lasco
+<span class="nv">$ </span>mkdir src pics cache
+<span class="nv">$ </span><span class="nb">cd </span>src
+<span class="nv">$ </span><span class="c"># As of this writing, Lasco relies on a feature of</span>
+  <span class="c"># &#39;repoze.bitblt&#39; that has not yet been released</span>
+<span class="nv">$ </span>wget -O - --no-check-certificate https://github.com/repoze/repoze.bitblt/tarball/master | tar xvz
+<span class="nv">$ </span><span class="nb">cd </span>repoze-repoze.bitblt-*
+<span class="nv">$ </span>python setup.py install
+<span class="nv">$ </span><span class="nb">cd</span> ../../
+<span class="nv">$ </span>easy_install Lasco
+</pre></div>
+</div>
+<p>You may check the installation with the following command:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>lascocli --help
+Usage: lascocli <span class="o">[</span>-i FILE<span class="o">]</span>
+
+Options:
+  -h, --help           show this <span class="nb">help </span>message and <span class="nb">exit</span>
+  -i FILE, --ini<span class="o">=</span>FILE  use FILE as the <span class="s1">&#39;ini&#39;</span> file <span class="o">(</span>default is <span class="s1">&#39;./Lasco.ini&#39;</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>On certain platforms (MacOS X 10.4, for example), you may have the
+following error:</p>
+<div class="highlight-python"><pre>ImportError: No module named readline</pre>
+</div>
+<p>In this case, you need to install <tt class="docutils literal"><span class="pre">readline</span></tt>:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>easy_install readline
+</pre></div>
+</div>
+<p>Once you have installed the application, you need to fetch
+configuration files. Some development files are available from the
+source repository.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>wget --no-check-certificate https://raw.github.com/dbaty/Lasco/master/dev.ini
+<span class="nv">$ </span>wget --no-check-certificate https://raw.github.com/dbaty/Lasco/master/who.ini
+</pre></div>
+</div>
+<p>Then edit <tt class="docutils literal"><span class="pre">dev.ini</span></tt> and change the following variables:</p>
+<div class="highlight-ini"><div class="highlight"><pre><span class="na">lasco.pictures_base_path</span> <span class="o">=</span> <span class="s">/path/to/test-lasco/pics</span>
+<span class="na">lasco.cache</span> <span class="o">=</span> <span class="s">/path/to/test-lasco/cache</span>
+</pre></div>
+</div>
+<p>You may also change the database, but a default SQLite will be good
+enough for a test.</p>
+<p>If you do have pictures, copy them in a directory under
+<tt class="docutils literal"><span class="pre">/path/to/test-lasco/pics</span></tt> (for example in
+<tt class="docutils literal"><span class="pre">/path/to/test-lasco/pics/holidays-2010</span></tt>). If you do not have
+pictures at hand... wait, why would you want a gallery, then? Anyway,
+there are plenty of pictures set on the web, here is one with around
+30 pictures:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd </span>pics
+<span class="nv">$ </span>mkdir australia
+<span class="nv">$ </span><span class="nb">cd </span>australia
+<span class="nv">$ </span>wget -r -np -nd -A <span class="s2">&quot;*.jpg&quot;</span> http://www.cs.washington.edu/research/imagedatabase/groundtruth/australia/
+<span class="nv">$ </span>ls *.jpg | wc -l
+      30
+<span class="nv">$ </span><span class="nb">cd</span> ../..
+</pre></div>
+</div>
+<p>You now need to record these pictures in Lasco. There is no web
+interface for this, you must use the command line interface.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>lascocli -c dev.ini
+lasco&gt; gallery_add <span class="nb">test</span> <span class="s2">&quot;Test gallery&quot;</span>
+<span class="o">=</span>&gt; Gallery has been added.
+lasco&gt; album_add <span class="nb">test </span>australia Australia /path/to/test-lasco/pics/australia
+<span class="o">=</span>&gt; Album has been added.
+</pre></div>
+</div>
+<p>Ok, our pictures are in the database, but you need a user account to
+access them. For this test, we will just create a gallery
+administrator, but you may create simple album viewers as well.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="o">(</span>continued from the <span class="s1">&#39;lascocli&#39;</span> session above<span class="o">)</span>
+lasco&gt; user_add <span class="nb">test test test</span>
+lasco&gt; gallery_users <span class="nb">test</span> +test
+lasco&gt; quit
+</pre></div>
+</div>
+<p>All right, you are almost ready, you just need to install a WSGI server:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>easy_install waitress
+</pre></div>
+</div>
+<p>Finally, we can start the application:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>pserve dev.ini
+Starting server in PID 15304.
+serving on http://0.0.0.0:6543
+</pre></div>
+</div>
+<p>If you visit <a class="reference external" href="http://0.0.0.0:6543">http://0.0.0.0:6543</a> and connect with the <tt class="docutils literal"><span class="pre">test</span></tt> login
+and the <tt class="docutils literal"><span class="pre">test</span></tt> password, you should be able to access the gallery
+and see your pictures.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Installation and configuration</a><ul>
+<li><a class="reference internal" href="#dependencies-and-prerequisites">Dependencies and prerequisites</a></li>
+<li><a class="reference internal" href="#id1">Installation and configuration</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="features.html"
+                        title="previous chapter">Features</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="userguide.html"
+                        title="next chapter">User guide</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/installation.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="userguide.html" title="User guide"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="features.html" title="Features"
+             >previous</a> |</li>
+        <li><a href="index.html">Lasco 0.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Damien Baty.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

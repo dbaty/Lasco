@@ -1,0 +1,43 @@
+body {
+    color: black;
+    background-color: white;
+}
+
+ul.batchNav li a {
+    background-color: white;
+    color: #6699CC;
+    border-color: #6699CC;
+}
+
+ul.batchNav li a:hover {
+    color: black;
+    border-color: black;
+}
+
+ul.batchNav li span.disabledLink {
+    color: #DDDDDD;
+}
+
+table.listing {
+    border-top-color: #BBBBBB;
+}
+
+table.listing td {
+    border-bottom-color: #BBBBBB;
+}
+
+table.listing tr.odd {
+    background-color: #EEEEEE;
+}
+
+table.listing tr.even {
+    background-color: #DDDDDD;
+}
+
+span.key {
+    border-color: #BBBBBB;
+}
+
+.dialog {
+    background-color: white;
+}

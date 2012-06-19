@@ -1,0 +1,200 @@
+# Translations template for Lasco.
+# Copyright (C) 2012 ORGANIZATION
+# This file is distributed under the same license as the Lasco project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Lasco 0.1.0\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2012-06-19 11:07+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 0.9.6\n"
+
+#: lasco/templates/album.pt:14
+msgid "back to the gallery (list of albums)"
+msgstr ""
+
+#: lasco/templates/album.pt:24
+msgid "first page"
+msgstr ""
+
+#: lasco/templates/album.pt:33
+msgid "previous page"
+msgstr ""
+
+#: lasco/templates/album.pt:50
+msgid "next page"
+msgstr ""
+
+#: lasco/templates/album.pt:59
+msgid "last page"
+msgstr ""
+
+#: lasco/templates/gallery.pt:13
+msgid "back to home page"
+msgstr ""
+
+#: lasco/templates/gallery.pt:23
+msgid "${n} pictures"
+msgstr ""
+
+#: lasco/templates/help.pt:10
+msgid "Help! I need somebody! Help!"
+msgstr ""
+
+#: lasco/templates/help.pt:12
+msgid "Which access keys are available?"
+msgstr ""
+
+#. Default: When viewing a single picture in an album, you may use access keys:
+#. <dynamic element> to navigate to the previous picture, <dynamic element> to
+#. navigate the next one.
+#: lasco/templates/help.pt:14
+msgid "help_access_keys_1"
+msgstr ""
+
+#. Default: How you invoke an access key depends on your browser (below <dynamic
+#. element> has to be replaced by the access key you want to invoke):
+#: lasco/templates/help.pt:20
+msgid "help_access_keys_2"
+msgstr ""
+
+#: lasco/templates/help.pt:61
+msgid "How do I change the language?"
+msgstr ""
+
+#. Default: You may change the language of the user interface by going to <dynamic
+#. element>.
+#: lasco/templates/help.pt:63
+msgid "help_language"
+msgstr ""
+
+#: lasco/templates/help.pt:68
+msgid "How to I change the colors?"
+msgstr ""
+
+#. Default: You may change the colors of the user interface by going to <dynamic
+#. element> and selecting a new color theme.
+#: lasco/templates/help.pt:70
+msgid "help_stylesheet"
+msgstr ""
+
+#: lasco/templates/index.pt:10
+msgid "Galleries"
+msgstr ""
+
+#: lasco/templates/layout.pt:28
+msgid "home"
+msgstr ""
+
+#: lasco/templates/layout.pt:30
+msgid "log in"
+msgstr ""
+
+#: lasco/templates/layout.pt:34
+msgid "log out"
+msgstr ""
+
+#: lasco/templates/layout.pt:37
+msgid "preferences"
+msgstr ""
+
+#: lasco/templates/layout.pt:40
+msgid "help"
+msgstr ""
+
+#: lasco/templates/login.pt:40
+msgid "User name"
+msgstr ""
+
+#: lasco/templates/login.pt:44
+msgid "Password"
+msgstr ""
+
+#: lasco/templates/login.pt:48
+msgid "Log in"
+msgstr ""
+
+#: lasco/templates/notfound.pt:10
+msgid "It was impossible to find the following resource: ${url}"
+msgstr ""
+
+#: lasco/templates/picture.pt:80
+msgid "(p)revious picture"
+msgstr ""
+
+#: lasco/templates/picture.pt:80
+msgid "p"
+msgstr ""
+
+#: lasco/templates/picture.pt:90
+msgid "back to the album (thumbnails)"
+msgstr ""
+
+#: lasco/templates/picture.pt:95
+msgid "(n)ext picture"
+msgstr ""
+
+#: lasco/templates/picture.pt:95
+msgid "n"
+msgstr ""
+
+#: lasco/templates/picture.pt:140
+msgid "Caption"
+msgstr ""
+
+#: lasco/templates/picture.pt:145
+msgid "Location"
+msgstr ""
+
+#: lasco/templates/picture.pt:150
+msgid "Updating..."
+msgstr ""
+
+#: lasco/templates/picture.pt:152
+msgid "Update"
+msgstr ""
+
+#: lasco/templates/picture.pt:154
+msgid "cancel"
+msgstr ""
+
+#: lasco/templates/preferences.pt:10 lasco/views/preferences.py:15
+msgid "Your preferences"
+msgstr ""
+
+#: lasco/templates/preferences.pt:12
+msgid "Color theme"
+msgstr ""
+
+#: lasco/templates/preferences.pt:22
+msgid "Change color theme"
+msgstr ""
+
+#: lasco/templates/preferences.pt:27
+msgid "Language"
+msgstr ""
+
+#: lasco/templates/preferences.pt:37
+msgid "Change language"
+msgstr ""
+
+#: lasco/views/auth.py:20
+msgid "Wrong user name or password."
+msgstr ""
+
+#: lasco/views/gallery.py:21
+msgid "Page not found"
+msgstr ""
+
+#: lasco/views/gallery.py:29
+msgid "Help"
+msgstr ""
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="api.layout.macros['master']"
+      i18n:domain="lasco">
+<tal:block metal:fill-slot="content">
+
+<h1 i18n:translate="">Your preferences</h1>
+
+<h2 i18n:translate="">Color theme</h2>
+
+<form method="post"
+      tal:attributes="action api.route_url('set_color_theme')">
+  <fieldset>
+    <select name="color_theme">
+      <option tal:repeat="theme available_themes"
+              tal:content="theme"
+              tal:attributes="selected theme == current_theme and 'selected' or None"/>
+    </select>
+    <input type="submit" value="Change color theme" i18n:attributes="value"/>
+  </fieldset>
+</form>
+
+
+<h2 i18n:translate="">Language</h2>
+
+<form method="post"
+      tal:attributes="action api.route_url('set_lang')">
+  <fieldset>
+    <select name="lang">
+      <option tal:repeat="lang available_langs"
+              tal:content="lang"
+              tal:attributes="selected lang == current_lang and 'selected' or None"/>
+    </select>
+    <input type="submit" value="Change language" i18n:attributes="value"/>
+  </fieldset>
+</form>
+
+
+</tal:block>
+</html>

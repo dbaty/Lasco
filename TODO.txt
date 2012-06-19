@@ -1,0 +1,30 @@
+====
+TODO
+====
+
+- refresh CSS
+
+- CLI: add a 'user_password' command in the CLI
+
+- Core + UI: allow video and sound recordings;
+
+- UI: Javascript-based fullscreen slideshow:
+
+  - http://www.buildinternet.com/project/supersized/
+
+  - http://galleria.aino.se/docs/1.2/references/optimize/
+
+  - http://manos.malihu.gr/sideways-jquery-fullscreen-image-gallery
+
+- UI: bind arrow keys to navigate in the album (in
+   'picture_in_album').  Left is 37, right is 39.
+
+- CLI: add completion of logins in gallery_users and album_users
+
+- Core: CSRF protection for the AJAX call.
+
+- Core: fill "repoze.bitblt" cache when pictures are uploaded.
+
+- Core + UI: tags & search engine with SolR
+
+- Core + UI: show location of pictures on a map

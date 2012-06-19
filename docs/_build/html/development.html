@@ -1,0 +1,199 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Development &mdash; Lasco 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Lasco 0.1.0 documentation" href="index.html" />
+    <link rel="next" title="List of releases of Lasco" href="changes.html" />
+    <link rel="prev" title="User guide" href="userguide.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="changes.html" title="List of releases of Lasco"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="userguide.html" title="User guide"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Lasco 0.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="development">
+<h1>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="contributions">
+<h2>Contributions<a class="headerlink" href="#contributions" title="Permalink to this headline">¶</a></h2>
+<p>Comments, feedback and contributions are most welcome. Do not hesitate
+to report bugs in the <a class="reference external" href="https://github.com/dbaty/Lasco/issues">issue tracker</a> or send a pull request on
+GitHub.</p>
+<p>The source code evolved slowly over the last few years, from
+<tt class="docutils literal"><span class="pre">repoze.bfg</span></tt> to the latest versions of Pyramid, so the code may seem
+dated here and there...</p>
+</div>
+<div class="section" id="how-to-run-the-tests">
+<h2>How to run the tests<a class="headerlink" href="#how-to-run-the-tests" title="Permalink to this headline">¶</a></h2>
+<p>The test suite may be run with <tt class="docutils literal"><span class="pre">nosetests</span></tt> if you have installed
+Nose, or <tt class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">test</span></tt> otherwise. By default, an in-memory
+SQLite database is used (which is fast). You may indicate a different
+database by setting a <tt class="docutils literal"><span class="pre">TESTING_DB</span></tt> environment variable. It should
+be a valid SQLAlchemy connection string, e.g.:</p>
+<div class="highlight-python"><pre>postgresql+psycopg2://lasco:lasco@localhost/lasco</pre>
+</div>
+<p>The code should be 100% covered with the exception of a few lines in
+the command-line interface and the third-party EXIF module.</p>
+</div>
+<div class="section" id="development-utilities">
+<h2>Development utilities<a class="headerlink" href="#development-utilities" title="Permalink to this headline">¶</a></h2>
+<p>The source ships with a <cite>Makefile</cite> that contains a few utility rules,
+amongst which:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">coverage</span></tt> (or simply <tt class="docutils literal"><span class="pre">cov</span></tt>)</dt>
+<dd><tt class="docutils literal"><span class="pre">make</span> <span class="pre">coverage</span></tt> runs Coverage.py, generates an HTML report and
+open it in your web browser.</dd>
+<dt><tt class="docutils literal"><span class="pre">distcheck</span></tt></dt>
+<dd><tt class="docutils literal"><span class="pre">make</span> <span class="pre">distcheck</span></tt> verifies that your current version of the code
+can be correctly installed on a virgin virtual environment. It
+basically builds a source distribution, creates a temporary
+virtual environment, installs the distribution there and run the
+tests.</dd>
+</dl>
+</div>
+<div class="section" id="credits">
+<h2>Credits<a class="headerlink" href="#credits" title="Permalink to this headline">¶</a></h2>
+<p>Lasco contains a module to extract EXIF information written by Gene
+Cash (see <tt class="docutils literal"><span class="pre">ext/exif.py</span></tt> for the license). The pencil icon comes from
+Mark James&#8217; <a class="reference external" href="http://www.famfamfam.com/">FamFamFam</a> <a class="reference external" href="http://www.famfamfam.com/lab/icons/silk/">Silk icon set</a> that is licensed under the
+<a class="reference external" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a> (CC BY 3.0).</p>
+<p>Lasco is written by Damien Baty and is licensed under the 3-clause BSD
+license, a copy of which is included in the source and reproduced
+below:</p>
+<p>Copyright (c) 2012, Damien Baty
+All rights reserved.</p>
+<p>Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.</li>
+<li>Redistributions in binary form must reproduce the above
+copyright notice, this list of conditions and the following
+disclaimer in the documentation and/or other materials provided
+with the distribution.</li>
+<li>Neither the name of &#8220;Lasco&#8221; nor the names of its contributors
+may be used to endorse or promote products derived from this
+software without specific prior written permission.</li>
+</ul>
+</div></blockquote>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+&#8220;AS IS&#8221; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL DAMIEN BATY BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Development</a><ul>
+<li><a class="reference internal" href="#contributions">Contributions</a></li>
+<li><a class="reference internal" href="#how-to-run-the-tests">How to run the tests</a></li>
+<li><a class="reference internal" href="#development-utilities">Development utilities</a></li>
+<li><a class="reference internal" href="#credits">Credits</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="userguide.html"
+                        title="previous chapter">User guide</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="changes.html"
+                        title="next chapter">List of releases of Lasco</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/development.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="changes.html" title="List of releases of Lasco"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="userguide.html" title="User guide"
+             >previous</a> |</li>
+        <li><a href="index.html">Lasco 0.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Damien Baty.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

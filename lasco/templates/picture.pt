@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<div xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:tal="http://xml.zope.org/namespaces/tal"
+     xmlns:metal="http://xml.zope.org/namespaces/metal"
+     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+     i18n:domain="lasco"
+     metal:use-macro="api.layout.macros['master']">
+
+<tal:block metal:fill-slot="head">
+  <tal:if-can-edit tal:condition="can_edit">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      $.fn.center = function() {
+        var win = $(window);
+        this.css({
+          position: 'absolute',
+          top: (win.height() - this.outerHeight()) / 2 + win.scrollTop() + 'px'
+        });
+        this.css({
+          left: (win.width() - this.outerWidth() ) / 2 + win.scrollLeft() + 'px'
+        });
+        return this;
+      };
+
+      function toggle_dialog(dialog_id) {
+        $('#' + dialog_id).center().toggle();
+        $('#caption').focus();
+      }
+
+      $(document).keydown(function(e) {
+          if (e.keyCode === 27) {
+            toggle_dialog('updatePictureMetadata');
+          }
+      });
+
+      function toggle_update_button() {
+        var form = document.getElementById('updateForm');
+        var button = form.elements['submit'];
+        var alt_text = form.elements['alt_submit_text'];
+        var tmp = alt_text.value;
+        alt_text.value = button.value;
+        button.value = tmp;
+        button.disabled = !button.disabled;
+      }
+
+      function update_caption_location() {
+        var form = document.getElementById('updateForm');
+        var url = form.action;
+        var caption = form.elements['caption'].value;
+        var location = form.elements['location'].value;
+        toggle_update_button();
+        $.ajax({cache: false,
+                data: {caption: caption, location: location},
+                dataType: 'json',
+                error: function(req, status, error) {
+                         window.alert('Something went wrong: ' + 
+                                      req.responseText);
+                         toggle_update_button();
+                       },
+                success: function(data, status, req) {
+                           document.getElementById('captionAndLocation').
+                                       innerHTML = data.pic_info;
+                           $('#updatePictureMetadata').toggle();
+                           toggle_update_button();
+                           },
+                timeout: 3000,
+                type: 'POST',
+                url: url});
+        return false; // cancel the "natural" submisson of the form
+      }
+    </script>
+  </tal:if-can-edit>
+</tal:block>
+
+<tal:block metal:fill-slot="content"
+           tal:define="pic_info picture.get_info">
+
+<div class="pictureNavigator">
+  <div>
+    <a tal:condition="previous_id is not None"
+       class="previousNext noUnderline"
+       tal:attributes="href api.route_url('picture_in_album',
+           gallery_name=gallery.name, album_name=album.name,
+           picture_id=previous_id)"
+       title="(p)revious picture"
+       accesskey="p"
+       i18n:attributes="title; accesskey">&larr;</a>
+    <span tal:condition="previous_id is None"
+          class="disabledLink">&larr;</span>
+    <a tal:attributes="href api.route_url('album',
+           gallery_name=gallery.name, album_name=album.name)"
+       class="noUnderline"
+       title="back to the album (thumbnails)"
+       i18n:attributes="title">&uarr;</a>
+    <a tal:condition="next_id is not None"
+       class="previousNext noUnderline"
+       tal:attributes="href api.route_url('picture_in_album',
+           gallery_name=gallery.name, album_name=album.name,
+           picture_id=next_id)"
+       title="(n)ext picture"
+       accesskey="n"
+       i18n:attributes="title; accesskey">&rarr;</a>
+    <span tal:condition="next_id is None"
+          class="disabledLink">&rarr;</span>
+  </div>
+  <div class="picturePositionInAlbum">
+    ${picture_index + 1}/${len(album.pictures)}
+  </div>
+</div>
+
+<div class="singlePicture"
+     tal:define="pic_url api.route_url('picture_as_image',
+                                       picture_id=picture.id)">
+  <a tal:attributes="href pic_url"
+     class="picture"
+    ><img tal:attributes="src pic_url"
+       height="600"
+       alt="${pic_info}"/></a>
+</div>
+
+<div class="pictureCaptionAndLocation clear">
+  <div id="captionAndLocation" style="display: inline"
+       tal:content="pic_info"/>
+  <a tal:condition="can_edit"
+     class="noUnderline"
+     href="javascript: toggle_dialog('updatePictureMetadata')"><img
+       style="vertical-align: baseline; border: 0"
+       tal:attributes="src api.static_url('img/edit.png')"
+       width="16" height="16" alt="edit"/></a>
+</div>
+
+<div id="updatePictureMetadata" class="dialog hidden" tal:condition="can_edit">
+  <form tal:attributes="action api.route_url('ajax_update_picture',
+                                             picture_id=picture.id)"
+        method="post"
+        id="updateForm"
+        style="margin-bottom: 0"
+        onsubmit="javascript: return update_caption_location();">
+    <div class="formRow">
+      <label for="caption" i18n:translate="">Caption</label>
+      <input type="text" id="caption" name="caption" size="40"
+             tal:attributes="value picture.caption"/>
+    </div>
+    <div class="formRow">
+      <label for="caption" i18n:translate="">Location</label>
+      <input type="text" name="location" size="40"
+             tal:attributes="value picture.location"/>
+    </div>
+    <div class="formRow">
+      <input type="hidden" name="alt_submit_text" value="Updating..."
+              i18n:attributes="value"/>
+      <input type="submit" name="submit" value="Update"
+             i18n:attributes="value"/> | 
+      <a href="javascript: toggle_dialog('updatePictureMetadata')"
+         i18n:translate="">cancel</a>
+    </div>
+  </form>
+</div>
+
+</tal:block>
+</div>

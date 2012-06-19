@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="lasco"
+      metal:use-macro="api.layout.macros['master']">
+<tal:block metal:fill-slot="content">
+
+<h1>
+  ${gallery.title}
+  <span class="smallInTitle">
+    (<a tal:attributes="href api.app_url"
+        title="back to home page"
+        i18n:attributes="title">&uarr;</a>)
+  </span>
+</h1>
+
+<ul class="genericList">
+  <li tal:repeat="album albums">
+    <a tal:attributes="href api.route_url(
+            'album', gallery_name=gallery.name, album_name=album.name)">${album.title}</a>
+    (<tal:block
+        i18n:translate=""><span tal:replace="len(album.pictures)"
+                                i18n:name="n"/> pictures</tal:block>)
+  </li>
+</ul>
+
+</tal:block>
+</html>

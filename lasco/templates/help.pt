@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="api.layout.macros['master']"
+      i18n:domain="lasco">
+<tal:block metal:fill-slot="content">
+
+<h1 i18n:translate="">Help! I need somebody! Help!</h1>
+
+<h2 i18n:translate="">Which access keys are available?</h2>
+
+<p i18n:translate="help_access_keys_1">
+   When viewing a single picture in an album, you may use access keys:
+   <span class="key">p</span> to navigate to the previous
+   picture, <span class="key">n</span> to navigate the next one.
+</p>
+
+<p i18n:translate="help_access_keys_2">
+  How you invoke an access key depends on your browser
+  (below <span class="key">?</span> has to be replaced by the access
+  key you want to invoke):
+</p>
+
+<table class="listing">
+  <tr class="odd">
+    <td rowspan="2">Firefox</td>
+    <td>
+      <span class="key">Alt</span> + <span class="key">&#8679; Shift</span> + <span class="key">?</span>
+      (Windows)
+    </td>
+  </tr>
+  <tr class="odd">
+    <td>
+      <span class="key">Ctrl</span> + <span class="key">?</span> (Mac OS X)
+    </td>
+  </tr>
+  <tr class="even">
+    <td>Opera</td>
+    <td>
+      <span class="key">&#8679; Shift</span> + <span class="key">Esc</span> + <span class="key">?</span>
+    </td>
+  </tr>
+  <tr class="odd">
+    <td>Internet Explorer</td>
+    <td><span class="key">Alt</span> + <span class="key">?</span></td>
+  </tr>
+  <tr class="even">
+    <td rowspan="2">Chrome</td>
+    <td><span class="key">Alt</span> + <span class="key">?</span> (Windows)</td>
+  </tr>
+  <tr class="even">
+    <td>
+      <span class="key">Ctrl</span> + <span class="key">&#8997; Option</span> + <span class="key">?</span>
+      (Mac OS X)
+    </td>
+  </tr>
+</table>
+
+<h2 i18n:translate="">How do I change the language?</h2>
+
+<p i18n:translate="help_language">
+  You may change the language of the user interface by going to
+  <a href="preferences">your preferences page</a>.
+</p>
+
+<h2 i18n:translate="">How to I change the colors?</h2>
+
+<p i18n:translate="help_stylesheet">
+  You may change the colors of the user interface by going to
+  <a href="preferences'">your preferences page</a> and selecting a new
+  color theme.
+</p>
+
+</tal:block>
+</html>

@@ -1,0 +1,45 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:define-macro="master">
+<head>
+  <title tal:content="api.page_title"></title>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <link rel="stylesheet" type="text/css"
+        tal:attributes="href api.static_url('css/main.css')"/>
+  <link tal:condition="api.color_theme != 'default'"
+        rel="stylesheet" type="text/css"
+        tal:attributes="href api.static_url('css/%s.css' % api.color_theme)"/>
+  <link rel="icon" tal:attributes="href api.static_url('img/favicon.ico')"
+        type="image/x-icon"/> 
+  <link tal:condition="api.previous_url" rel="previous"
+        href="${api.previous_url}"/>
+  <link tal:condition="api.next_url" rel="next" href="${api.next_url}"/>
+  <metal:head metal:define-slot="head"></metal:head>
+</head>
+<body i18n:domain="lasco">
+
+  <metal:content metal:define-slot="content"></metal:content>
+
+  <ul class="footer" 
+      tal:condition="api.show_footer">
+    <li>
+      <a tal:attributes="href api.app_url" i18n:translate="">home</a></li>
+    <li tal:condition="not api.logged_in">
+      <a tal:attributes="href api.route_url('login')"
+         i18n:translate="">log in</a></li>
+    <li tal:condition="api.logged_in">
+      <span tal:replace="api.user_fullname"/>
+      (<a tal:attributes="href api.route_url('logout')"
+          i18n:translate="">log out</a>)</li>
+    <li>
+      <a tal:attributes="href api.route_url('preferences')"
+         i18n:translate="">preferences</a></li>
+    <li class="last">
+      <a tal:attributes="href api.route_url('help')"
+         i18n:translate="">help</a></li>
+  </ul>
+
+</body>
+</html>
