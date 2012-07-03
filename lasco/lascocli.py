@@ -112,6 +112,22 @@ class LascoCmd(Cmd):
     def completenames(self, text, *ignored):
         return Cmd.completenames(self, text, *ignored)
 
+    def complete_help(self, *args):
+        """A completer function for the ``help`` command.
+
+        Since our version of ``completenames()`` adds a trailing
+        whitespace, we need to override ``Cmd.complete_help()``
+        otherwise all commands are listed twice (once with a trailing
+        space, once without).
+        """
+        commands = [name.rstrip() for name in self.completenames(*args)]
+        commands = set(commands)
+        # The rest of the method is the same as the original
+        # implementation ('Cmd.complete_help()').
+        topics = set(a[5:] for a in self.get_names()
+                     if a.startswith('help_' + args[0]))
+        return list(commands | topics)
+
     @fix_completer
     def _complete_gallery_name(self, text, line, begidx, endidx):
         """A completer function for all commands that require a

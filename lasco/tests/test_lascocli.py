@@ -86,9 +86,9 @@ class TestLascoCmd(TestCase):
        calls.
 
     2. The command-line client prints data. Checking the output is not
-        much fun. Perhaps writing these tests as doctests would have
-        been easier to check output, but I do not find doctest very
-        flexible.
+       much fun. Perhaps writing these tests as doctests would have
+       been easier to check output, but I do not find doctest very
+       flexible.
     """
 
     def setUp(self):
@@ -399,6 +399,36 @@ class TestLascoCmd(TestCase):
                             cmd.complete_gallery_users)
         self.assertEqual(cmd.complete_album_remove,
                          cmd.complete_album_users)
+
+    def test_complete_help_without_leading_chars(self):
+        cmd = self._make_one(custom_api=None)
+        call_fut = lambda text, line: self._call_completer(
+            cmd.complete_help, text, line)
+        all_commands = ['album_add',
+                        'album_remove',
+                        'album_users',
+                        'gallery_add',
+                        'gallery_list',
+                        'gallery_remove',
+                        'gallery_users',
+                        'help',
+                        'lasco_list',
+                        'q',
+                        'quit',
+                        'shell',
+                        'user_add',
+                        'user_list',
+                        'user_remove']
+        self.assertEqual(sorted(call_fut('', 'help ')), all_commands)
+
+    def test_complete_help_with_leading_chars(self):
+        cmd = self._make_one(custom_api=None)
+        call_fut = lambda text, line: self._call_completer(
+            cmd.complete_help, text, line)
+        expected = ['album_add',
+                    'album_remove',
+                    'album_users']
+        self.assertEqual(sorted(call_fut('al', 'help al')), expected)
 
     def test_complete_gallery_name(self):
         from lasco.models import Gallery
