@@ -78,7 +78,6 @@ class LascoCmd(Cmd):
         self.config = ConfigParser(defaults={'here': here})
         self.config.read(conf_file)
         db_string = self.config.get('app:lasco', 'lasco.db_string')
-        print db_string
         self.engine = create_engine(db_string)
         self.session = sessionmaker(self.engine)()
         # The following customizations are here for our tests.
