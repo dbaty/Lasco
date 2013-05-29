@@ -15,6 +15,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 import lasco.api
+import lasco.models
 from lasco.utils import repr_as_table
 
 
@@ -80,6 +81,10 @@ class LascoCmd(Cmd):
         db_string = self.config.get('app:lasco', 'lasco.db_string')
         self.engine = create_engine(db_string)
         self.session = sessionmaker(self.engine)()
+        # Create tables if they do not exist yet.
+        metadata = lasco.models.metadata
+        metadata.bind = self.engine
+        metadata.create_all(self.engine)
         # The following customizations are here for our tests.
         if custom_api:
             self.api = custom_api

@@ -1,11 +1,13 @@
 List of releases of Lasco
 =========================
 
-unreleased
-----------
+Lasco 0.2.0
+-----------
 
-- fixed completion of ``help`` command in the command-line
-  interface. All commands appeared twice.
+- Create tables when the command-line is first launched. Fixes #1.
+
+- Fix completion of ``help`` command in the command-line
+  interface. All commands used to appear twice.
 
 
 Lasco 0.1.0 (2012-06-19)
